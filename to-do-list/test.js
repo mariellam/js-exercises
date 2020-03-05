@@ -6,10 +6,10 @@
 
 Revisar capitulo 3 - Ceviche.js
 */
-let itemLink = document.getElementById('addItem');
-let newItem = document.getElementById('item');
+const itemLink = document.querySelector('#addItem');
+let newItem = document.querySelector('#item');
 
-let todoList = document.getElementById('todoContainer');
+const todoList = document.querySelector('#todoContainer');
 
 function markAsDone() {
   this.nextSibling.className = this.checked ? 'done' : '';
@@ -24,33 +24,19 @@ function deleteListItem() {
 // add items
 itemLink.addEventListener('click', function () {
   let newItemValue = newItem.value;
+  let addTodoItem = document.createElement('li')
+  addTodoItem.innerHTML = '<input type="checkbox" class="doneCheck"><label>' + newItemValue + '</label> <a href="#" class="deleteItem">Delete this item</a>';
+  todoList.appendChild(addTodoItem);
+  newItem.value = '';
 
-  for (i = 0; i < 1; i++) {
-    let addTodoItem = document.createElement('li')
-    addTodoItem.innerHTML = '<input type="checkbox" class="doneCheck"><label>'+ newItemValue +'</label> <a href="#" class="deleteItem">Delete this item</a>';
-    todoList.appendChild(addTodoItem);
-    console.log('Added Item');
+  console.log('Added Item');
 
-    //mark as done
-    let doneItem = addTodoItem.getElementsByClassName('doneCheck')[0];
-    doneItem.addEventListener('change', markAsDone);
-    
+  //mark as done
+  let doneItem = addTodoItem.querySelectorAll('input.doneCheck')[0];
+  doneItem.addEventListener('change', markAsDone);
 
-    //delete this item
-    let deleteLink = addTodoItem.getElementsByClassName('deleteItem')[0];
-    deleteLink.addEventListener('click', deleteListItem);
-  }
+
+  //delete this item
+  let deleteLink = addTodoItem.querySelectorAll('a.deleteItem')[0];
+  deleteLink.addEventListener('click', deleteListItem);
 });
-
-
-
-let doneItems = document.getElementsByClassName('input');
-for (i = 0; i < doneItems.length; i++) {
-  doneItems[i].addEventListener('change', markAsDone);
-}
-
-let deleteLinks = document.getElementsByClassName('deleteItem');
-for (i=0; i<deleteLinks.length; i++) {
-  deleteLinks[i].addEventListener('click', deleteListItem);
-}
-
