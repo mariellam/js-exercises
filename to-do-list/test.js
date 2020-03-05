@@ -7,6 +7,8 @@
 Revisar capitulo 3 - Ceviche.js
 */
 let itemLink = document.getElementById('addItem');
+let newItem = document.getElementById('item');
+
 let todoList = document.getElementById('todoContainer');
 
 function markAsDone() {
@@ -21,14 +23,16 @@ function deleteListItem() {
 
 // add items
 itemLink.addEventListener('click', function () {
+  let newItemValue = newItem.value;
+
   for (i = 0; i < 1; i++) {
     let addTodoItem = document.createElement('li')
-    addTodoItem.innerHTML = '<input type="checkbox"><label>New to do item</label> <a href="#" class="deleteItem">Delete this item</a>';
+    addTodoItem.innerHTML = '<input type="checkbox" class="doneCheck"><label>'+ newItemValue +'</label> <a href="#" class="deleteItem">Delete this item</a>';
     todoList.appendChild(addTodoItem);
     console.log('Added Item');
 
     //mark as done
-    let doneItem = addTodoItem.getElementsByTagName('input')[0];
+    let doneItem = addTodoItem.getElementsByClassName('doneCheck')[0];
     doneItem.addEventListener('change', markAsDone);
     
 
@@ -40,7 +44,7 @@ itemLink.addEventListener('click', function () {
 
 
 
-let doneItems = document.getElementsByTagName('input');
+let doneItems = document.getElementsByClassName('input');
 for (i = 0; i < doneItems.length; i++) {
   doneItems[i].addEventListener('change', markAsDone);
 }
