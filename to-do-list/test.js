@@ -7,7 +7,7 @@
 Revisar capitulo 3 - Ceviche.js
 */
 const itemLink = document.querySelector('#addItem');
-let newItem = document.querySelector('#item');
+const newItem = document.querySelector('#item');
 
 const todoList = document.querySelector('#todoContainer');
 
@@ -32,11 +32,11 @@ itemLink.addEventListener('click', function () {
   console.log('Added Item');
 
   //mark as done
-  let doneItem = addTodoItem.querySelectorAll('input.doneCheck')[0];
+  const doneItem = addTodoItem.querySelector('input.doneCheck');
   doneItem.addEventListener('change', markAsDone);
 
 
   //delete this item
-  let deleteLink = addTodoItem.querySelectorAll('a.deleteItem')[0];
+  const deleteLink = addTodoItem.querySelector('a.deleteItem');
   deleteLink.addEventListener('click', deleteListItem);
 });
