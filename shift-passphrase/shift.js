@@ -1,7 +1,7 @@
 function playPass(s, n) {
 
   const firstShift = s.toLowerCase();
-  let arrayToShift = [];
+  const arrayToShift = [];
 
   for (i = 0; i < firstShift.length; i++) {
     let charToShift = firstShift.charCodeAt(i);
@@ -27,7 +27,7 @@ function playPass(s, n) {
     }
   }
 
-  //console.log(shiftedArray.reverse().join('').toString());
-  return shiftedArray.reverse().join('').toString();
+  console.log(shiftedArray.reverse().join(''));
+  //return shiftedArray.reverse().join('')
 
 }
