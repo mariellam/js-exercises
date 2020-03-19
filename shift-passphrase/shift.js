@@ -19,7 +19,7 @@ function playPass(s, n) {
     arrayToShift.push(charToShift);
   }
 
-  let shiftedArray = Array.from(arrayToShift, item => String.fromCharCode(item));
+  const shiftedArray = arrayToShift.map(item => String.fromCharCode(item));
 
   for (i = 0; i < shiftedArray.length; i++) {
     if (i % 2 === 0) {
@@ -31,3 +31,4 @@ function playPass(s, n) {
   //return shiftedArray.reverse().join('')
 
 }
+playPass("MY GRANMA CAME FROM NY ON THE 23RD OF APRIL 2015", 2);
