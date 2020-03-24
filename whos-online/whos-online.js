@@ -34,46 +34,18 @@ const whosOnline = (friends) => {
   let isOffline = getByStatus('offline');
   let isAway = getByStatus('away');
 
-  let whosReallyOnline = {};
+  const whosReallyOnline = {
+      'online': isOnline,
+      'offline': isOffline,
+      'away': isAway
+  };
 
-  function checkStatus() {
-    if (isOnline.length < 1 && isOffline.length < 1 && isAway.length < 1) {
-      whosReallyOnline = {};
-    } else if (isOnline.length > 0 && isOffline.length < 1 && isAway.length < 1) {
-      whosReallyOnline = { 'online': isOnline };
-    } else if (isOnline.length < 1 && isOffline.length > 0 && isAway.length < 1) {
-      whosReallyOnline = { 'offline': isOffline};
-    } else if (isOnline.length < 1 && isOffline.length < 1 && isAway.length > 0) {
-      whosReallyOnline = { 'away': isAway };
-    } else if (isOnline.length > 0 && isOffline.length > 0 && isAway.length < 1) {
-      whosReallyOnline = {
-        'online': isOnline,
-        'offline': isOffline
-      };
-    } else if (isOnline.length < 1 && isOffline.length > 0 && isAway.length > 0) {
-      whosReallyOnline = {
-        'offline': isOffline,
-        'away': isAway
-      };
-    } else if (isOnline.length > 0 && isOffline.length < 1 && isAway.length > 0) {
-      whosReallyOnline = {
-        'online': isOnline,
-        'away': isAway
-      };
-    } else if (isOnline.length > 0 && isOffline.length > 0 && isAway.length > 0) {
-      whosReallyOnline = {
-        'online': isOnline,
-        'offline': isOffline,
-        'away': isAway
-      };
+  for (key in whosReallyOnline) {
+    if (whosReallyOnline[key].length === 0) {
+      delete whosReallyOnline[key];
     }
   }
-  checkStatus();
-
-  //console.log(isOnline);
-  //console.log(isOffline);
-  //console.log(isAway);
-  console.log(whosReallyOnline);
-  //return whosReallyOnline;
+  //console.log(whosReallyOnline);
+  return whosReallyOnline;
 }
 whosOnline();
