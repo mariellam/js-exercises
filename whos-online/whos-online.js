@@ -12,12 +12,11 @@ const whosOnline = (friends) => {
     }
   ]
 
-  function userNewStatus(item){
-    if (item.lastActivity > 10 && item.status != 'offline') {
-      item.status = 'away';
+  friends.forEach(friend => {
+    if (friend.lastActivity > 10 && friend.status != 'offline') {
+      friend.status = 'away';
     };
-  }
-  friends.map(userNewStatus);
+  })
 
   function getUsername(item) {
     return item.username;
