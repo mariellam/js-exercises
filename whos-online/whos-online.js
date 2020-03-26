@@ -16,24 +16,23 @@ friends = [
   }
 ];
 
-friends.forEach(friend => {
-  if (friend.lastActivity > 10 && friend.status != "offline") {
-    friend.status = "away";
-  }
-});
-
 function getUsername(item) {
   return item.username;
 }
 
-function getByStatus(status) {
-  function getStatus(item) {
-    return item.status === status;
-  }
-  return friends.filter(getStatus).map(getUsername);
-}
-
 const whosOnline = (friends) => {
+  friends.forEach(friend => {
+    if (friend.lastActivity > 10 && friend.status != "offline") {
+      friend.status = "away";
+    }
+  });
+
+  function getByStatus(status) {
+    function getStatus(item) {
+      return item.status === status;
+    }
+    return friends.filter(getStatus).map(getUsername);
+  }
 
   let isOnline = getByStatus('online');
   let isOffline = getByStatus('offline');
