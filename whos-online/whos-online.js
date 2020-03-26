@@ -1,26 +1,26 @@
-friends = [
-  {
-    username: "Mark",
-    status: "online",
-    lastActivity: 5
-  },
-  {
-    username: "Lucy",
-    status: "offline",
-    lastActivity: 22
-  },
-  {
-    username: "Bob",
-    status: "online",
-    lastActivity: 104
-  }
-];
-
 function getUsername(item) {
   return item.username;
 }
 
 const whosOnline = (friends) => {
+  friends = [
+    {
+      username: "Mark",
+      status: "online",
+      lastActivity: 5
+    },
+    {
+      username: "Lucy",
+      status: "offline",
+      lastActivity: 22
+    },
+    {
+      username: "Bob",
+      status: "online",
+      lastActivity: 104
+    }
+  ];
+
   friends.forEach(friend => {
     if (friend.lastActivity > 10 && friend.status != "offline") {
       friend.status = "away";
