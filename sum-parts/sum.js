@@ -1,25 +1,17 @@
 function partsSums(ls) {
-  if (ls.length > 0) {
-    for (i=0; i<ls.length; i++){
-      const reducedLs = ls.reduce((a, b) => a + b);
-      console.log(ls, reducedLs);
-      ls.shift();
-      console.log(ls);
-    }
-  } else {
-    ls = [0];
-    console.log(ls);
-    //return ls;
-  };
+  const shiftLs = Array.from(ls);
+  const sumArray = [];
+
+for (i = 0; i < ls.length; i++) {
+  const sumAll = shiftLs.reduce((a, b) => a + b);
+  sumArray.push(sumAll);
+  shiftLs.shift();
+}
+if (ls.length === 0 || shiftLs.length === 0) sumArray.push(0);
+
+//console.log(sumArray);
+return sumArray;
 }
 partsSums([0, 1, 3, 6, 10]);// [20, 20, 19, 16, 10, 0];
 
-/* const reducedLs = ls.reduce((a, b) => {
-      if (a + b == 0) {
-        console.log(0);
-      } else {
-        console.log(a + b);
-      }
-    });
-    return reducedLs;
-*/
+// This solution Times Out in CW.
