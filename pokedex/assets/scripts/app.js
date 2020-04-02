@@ -4,6 +4,7 @@ function createNode(element) {
 
 function append(parent, el) {
   return parent.appendChild(el);
+}
 
 const list = document.getElementById('pokedex');
 const url = 'https://pokeapi.co/api/v2/pokemon';
