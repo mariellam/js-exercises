@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Darker Grotesque', sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 100px auto 100px;
+}
+
+#title, #pokedex {
+  grid-column-start: 2;
+}
