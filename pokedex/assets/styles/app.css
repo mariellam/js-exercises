@@ -13,3 +13,9 @@ body {
 #title, #pokedex {
   grid-column-start: 2;
 }
+
+#pokedex {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  grid-column-gap: 2%;
+}

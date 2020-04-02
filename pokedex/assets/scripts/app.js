@@ -9,7 +9,7 @@ function append(parent, el) {
 const list = document.getElementById('pokedex');
 const url = 'https://pokeapi.co/api/v2/pokemon';
 
-for (i = 1; i<= 150; i++){
+for (i = 1; i <= 150; i++){
   fetch(url + '/' + i)
     .then(resp => resp.json())
     .then(function(data) {
