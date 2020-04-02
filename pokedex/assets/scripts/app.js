@@ -1,10 +1,9 @@
 function createNode(element) {
-  return document.createElement(element); // Create the type of element you pass in the parameters
+  return document.createElement(element);
 }
 
 function append(parent, el) {
-  return parent.appendChild(el); // Append the second parameter(element) to the first one
-}
+  return parent.appendChild(el);
 
 const list = document.getElementById('pokedex');
 const url = 'https://pokeapi.co/api/v2/pokemon';
@@ -23,7 +22,7 @@ for (i = 1; i <= 150; i++){
       img.src = pokemon.sprites.front_default;
       span.innerHTML = pokemon.name;
       append(li, a);
-      append(a, img); // Append all our elements
+      append(a, img);
       append(a, span);
       append(list, li);
       })
