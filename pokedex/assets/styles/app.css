@@ -1,8 +1,10 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Darker Grotesque', sans-serif;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -10,7 +12,8 @@ body {
   grid-template-columns: 100px auto 100px;
 }
 
-#title, #pokedex {
+#title,
+#pokedex {
   grid-column-start: 2;
 }
 
@@ -18,4 +21,49 @@ body {
   display: grid;
   grid-template-columns: 32% 32% 32%;
   column-gap: 2%;
+  row-gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+#pokedex li {
+  list-style: none;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+#pokedex li a {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  text-shadow: rgb(80, 80, 80) 1px 1px 1px;
+  text-decoration: none;
+}
+
+#pokedex li a div {
+  background-color: rgb(248, 200, 80);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: block;
+  height: 50px;
+  font-weight: 900;
+  padding: 10px;
+}
+
+#pokedex li a div span {
+  font-size: 1.5em;
+}
+
+#pokedex li a div h2 {
+  float: right;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+#pokedex li a img {
+  display: block;
+  margin: 10px auto;
+  width: 120px;
+  height: 120px;
 }
