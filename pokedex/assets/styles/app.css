@@ -7,18 +7,38 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.container {
+#main-nav, .container {
   display: grid;
-  grid-template-columns: 100px auto 100px;
+  grid-template-columns: 100px  auto 100px;
 }
 
-#title,
-#pokedex {
+#main-nav .container {
+  display: grid;
   grid-column-start: 2;
+  grid-template-columns: 49% 49%;
+  column-gap: 2%;
+}
+
+#title {
+  grid-column-start: 1;
+}
+
+#search {
+  display: grid;
+  justify-self: stretch;
+  align-self: center;
+}
+
+#search input {
+  justify-self: stretch;
+  text-align: right;
+  font-size: 1.5em;
+  font-weight: 600;
 }
 
 #pokedex {
   display: grid;
+  grid-column-start: 2;
   grid-template-columns: 32% 32% 32%;
   column-gap: 2%;
   row-gap: 20px;
