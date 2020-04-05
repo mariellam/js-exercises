@@ -18,8 +18,9 @@ fetch(url)
           a = createNode('a'),
           div = createNode('div'),
           h2 = createNode('h2'),
-          img = createNode('img');
-      a.href = 'detail.html';
+          img = createNode('img'),
+          pokemonURL = e.url;
+      a.href = 'detail.html?'+ pokemonURL;
       div.innerHTML = '<span>'+ (i+1) + '</span>';
       h2.innerHTML = e.name;
       img.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+(i+1)+'.png';
@@ -29,4 +30,4 @@ fetch(url)
       append(div, h2);
       append(list, li);
     });
-  })
+  });
