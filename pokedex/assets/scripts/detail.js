@@ -21,14 +21,19 @@ fetch(urlBasic)
           p = createNode('p'),
           pokemonId = pokemon.id,
           pokemonName = pokemon.name,
-          pokemonTypes = pokemon.types;
+          pokemonTypes = pokemon.types.forEach(function(e) {
+            let types = e.type.name;
+            return types;
+          });
       div1.innerHTML = '<span>'+ pokemonId + '</span>';
-      div2.setAttribute('id','details')
+      div2.setAttribute('id','details');
       h2.innerHTML = pokemon.name;
+      p.innerHTML = pokemonTypes;
       img.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+ pokemonId +'.png';
       append(div1, div2);
       append(div1, img);
       append(div2, h2);
+      append(div2, p);
       append(content, div1);
       return pokemonName;
   });
@@ -42,7 +47,6 @@ fetch(urlFlavor)
     const div2 = document.getElementById('details');
     const p = createNode('p'),
           pokemonFlavor = pokemonSpecies.flavor_text_entries.find(e => e.language.name == "en").flavor_text;
-          console.log(pokemonFlavor);
       p.innerHTML = pokemonFlavor;
       div2.appendChild(p);
   });
