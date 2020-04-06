@@ -14,16 +14,17 @@ fetch(url)
   .then(function(data) {
     let pokemons = data.results;
     pokemons.forEach((e, i) => {
-      let li = createNode('li'),
-          a = createNode('a'),
-          div = createNode('div'),
-          h2 = createNode('h2'),
-          img = createNode('img'),
-          pokemonURL = e.url;
-      a.href = 'detail.html?'+ pokemonURL;
-      div.innerHTML = '<span>'+ (i+1) + '</span>';
+      const li = createNode('li'),
+            a = createNode('a'),
+            div = createNode('div'),
+            h2 = createNode('h2'),
+            img = createNode('img'),
+            pokemonId = i + 1;
+            pokemonName = e.name;
+      a.href = 'detail.html' + '?' + 'name=' + pokemonName;
+      div.innerHTML = '<span>'+ pokemonId + '</span>';
       h2.innerHTML = e.name;
-      img.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+(i+1)+'.png';
+      img.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+ pokemonId +'.png';
       append(li, a);
       append(a, div);
       append(a, img);
