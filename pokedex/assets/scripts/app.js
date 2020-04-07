@@ -8,11 +8,12 @@ function append(parent, el) {
 
 const list = document.getElementById('pokedex');
 const url = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+let pokemons;
 
 fetch(url)
   .then(resp => resp.json())
   .then(function(data) {
-    let pokemons = data.results;
+    pokemons = data.results;
     pokemons.forEach((e, i) => {
       const li = createNode('li'),
             a = createNode('a'),
@@ -31,4 +32,8 @@ fetch(url)
       append(div, h2);
       append(list, li);
     });
-  });
+  })
+.then(function(search){
+  const searchBox = document.getElementById('searchbox');
+  console.log(searchBox);
+});

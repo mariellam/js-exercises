@@ -27,7 +27,7 @@ fetch(urlBasic)
       div1.innerHTML = '<span>'+ pokemonId + '</span>';
       div2.setAttribute('id','details');
       h2.innerHTML = pokemon.name;
-      p.innerHTML = pokemonTypes;
+      p.innerHTML = pokemonTypes.toString();
       img.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+ pokemonId +'.png';
       append(div1, div2);
       append(div1, img);
