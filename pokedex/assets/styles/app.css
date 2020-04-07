@@ -87,3 +87,7 @@ body {
   width: 120px;
   height: 120px;
 }
+
+#content {
+  grid-column-start: 2;
+}

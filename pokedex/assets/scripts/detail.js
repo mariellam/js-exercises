@@ -21,9 +21,8 @@ fetch(urlBasic)
           p = createNode('p'),
           pokemonId = pokemon.id,
           pokemonName = pokemon.name,
-          pokemonTypes = pokemon.types.forEach(function(e) {
-            let types = e.type.name;
-            return types;
+          pokemonTypes = pokemon.types.map(function(e) {
+            return ' ' + e.type.name;
           });
       div1.innerHTML = '<span>'+ pokemonId + '</span>';
       div2.setAttribute('id','details');
